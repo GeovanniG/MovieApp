@@ -1,0 +1,29 @@
+.icons { 
+    cursor: pointer;
+    display: flex;
+    font-size: 20rem;
+    justify-content: center;
+}
+
+.icon {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 2rem var(--xs-size);
+}
+
+.icon:hover {
+    font-weight: 600;
+    transform: scale(1.03);
+}
+
+.icon--purple {
+    color: purple;
+}
+
+.icon--blue {
+    color: blue;
+}
+
+.icon--red {
+    color: red;
+}

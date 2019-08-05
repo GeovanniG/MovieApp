@@ -1,0 +1,9 @@
+/* Credited to: https://codepen.io/aurer/pen/jEGbA */
+/*
+  Set the color of the icon
+*/
+/* svg path,
+svg rect */
+.loader {
+  fill: var(--grey-primary);
+}

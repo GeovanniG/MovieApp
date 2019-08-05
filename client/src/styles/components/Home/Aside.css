@@ -1,0 +1,41 @@
+.aside {
+    border: 1px solid var(--grey-primary);
+    padding: var(--xs-size);
+    margin: var(--xs-size);
+}
+
+.aside__list {
+    list-style: none;
+}
+
+.aside__list-item-title {
+    grid-area: title;
+}
+
+.aside__list-item-num {
+    justify-self: center;
+    grid-area: num;
+}
+
+.aside__list-item-link {
+    grid-area: link;
+    margin-right: var(--xxs-size);
+}
+
+.aside__list-item-btn {
+    background: var(--grey-primary);
+    color: var(--white-primary);
+    width: 100%;
+}
+
+.aside__list-item-btn:hover {
+    color: var(--brown-primary);
+}
+
+.aside__list-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 4fr;
+    grid-template-areas: 
+        "title num link";
+    margin: var(--xs-size) 0;
+}

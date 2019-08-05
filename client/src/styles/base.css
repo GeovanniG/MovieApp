@@ -1,0 +1,77 @@
+html {
+    box-sizing: border-box;
+    font-size: 6.25%;
+    height: 100%;
+}
+
+/* Necessary to make height: 100% to set footer at the bottom of the page */
+#root {
+    height: 100%;
+}
+
+:root {
+    --grey-primary: #424B54;
+    --white-primary: #FFFFFF;
+    --yellow-primary: #E1CE7A;
+    --brown-primary: #EBCFB2;
+    --brown-secondary: #C5BAAF;
+
+    --xxs-size: 4rem;
+    --xs-size: 6rem;
+    --s-size: 8rem;
+    --m-size: 16rem;
+    --l-size: 24rem;
+    --xl-size: 36rem;
+    --xxl-size: 48rem;
+
+    --s-breakpoint: 500px;
+    --m-breakpoint: 750px;
+    --m-breakpoint: 1000px;
+    --xl-breakpoint: 1200px;
+}
+
+body {
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-size: var(--m-size);
+    height: 100%;
+    letter-spacing: 0.625rem;
+    line-height: 1.5;
+    margin: auto;
+    max-width: var(--xl-breakpoint);
+    position: relative;
+}
+
+
+*, *::after, *::before {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+button, input {
+    cursor: pointer;
+    letter-spacing: 0.625rem;
+    line-height: 1.5;
+}
+
+.btn {
+    border-radius: var(--xxs-size);
+    box-shadow: 3px 3px 5px 1px #424B54;
+    border: none;
+    color: var(--grey-primary);
+    outline: none;
+    padding: 2rem;
+    margin: 2rem var(--xxs-size);
+}
+
+.btn:hover {
+    transform: scale(1.03);
+}
+
+.btn:active {
+    transform: scale(.99);
+}

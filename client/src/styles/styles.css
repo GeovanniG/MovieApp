@@ -1,0 +1,13 @@
+@import './base.css';
+@import './components/Frame/Nav.css';
+@import './components/Frame/Footer.css';
+@import './components/Frame/Frame.css';
+@import './components/Home/Home.css';
+@import './components/Home/Card.css';
+@import './components/Home/CardList.css';
+@import './components/Form/Form.css';
+@import './components/Home/Icons.css';
+@import './components/Home/Loader.css';
+@import './components/Home/Aside.css';
+@import './components/Home/MovieModal.css';
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');

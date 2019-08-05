@@ -1,0 +1,115 @@
+.card {
+    --card-width: 290px; 
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: var(--xxs-size);
+    max-width: var(--card-width);
+    position: relative;
+}
+
+.card__header {
+    align-items: center;
+    display: flex;
+    flex-grow: 2;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+.card__header-title {
+    font-size: 20rem;
+    font-weight: 400;
+    padding: 2rem;
+}
+
+.card__img {
+    border-bottom: 1px solid var(--grey-primary);
+    height: auto;
+    width: 100%;
+}
+
+.card__img-wrapper {
+    position: relative;
+}
+
+.card__img--overlay {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding-bottom: var(--s-size); 
+}
+
+.card__img--loader {
+    justify-content: center;
+}
+
+@media (any-hover: hover) {
+    .card__img-wrapper:hover .card__img-btn-wrapper {
+        background: rgba(168, 190, 212, 0.849);
+        z-index: 1;
+    }
+
+    /* .card__img-wrapper:hover .card__img-btn-wrapper:active {
+        background: var(--white-primary);
+    }  */
+
+    .card__img-btn-wrapper {
+        justify-content: flex-end;
+        z-index: -1;
+    }
+
+    .card__img-btn {
+        color: var(--grey-primary);
+    }
+
+    .card__img-btn--white-primary {
+        background: var(--white-primary);
+    }
+
+    .card__header-icon {
+        display: none;
+    }
+
+    .card__icons {
+        display: none;
+    }
+}
+
+@media (hover:none), (hover:on-demand) { 
+    .card {
+        border: 1px solid var(--grey-primary);
+        border-radius: var(--xxs-size);
+        box-shadow: 2rem 2rem 3rem 1rem var(--grey-primary);
+    }
+
+    .card__header {
+        border-radius: var(--xxs-size) var(--xxs-size) 0 0;
+        background: var(--brown-secondary);
+    }
+
+    .card__img {
+        border-radius: 0 0 var(--xxs-size) var(--xxs-size);
+    }
+    
+    .card__img-btn-wrapper {
+        display: none;
+    }
+
+    .card__header-icon {
+        color: white;
+        font-size: 35rem;
+        padding: 3rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .card__icons {
+        padding-top: 3rem;
+    }
+} 

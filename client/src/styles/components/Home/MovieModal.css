@@ -1,0 +1,35 @@
+.modal {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.modal__title {
+    font-weight: 400;
+    font-size: 30rem;
+}
+
+.modal__title-icon {
+    align-self: flex-end;
+    color: red;
+    font-size: var(--xl-size);
+    margin-bottom: -16rem;
+    position: sticky;
+    top: 0;
+}
+
+.modal__title-icon:hover {
+    transform: scale(1.2);
+}
+
+.modal__img {
+    height: auto;
+    margin: var(--xs-size) 0;
+    width: 100%;
+}
+
+.modal__text {
+    padding: var(--xxs-size) 0;
+}
