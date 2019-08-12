@@ -1,16 +1,17 @@
 import React from 'react';
-// import { withRouter } from 'react-router-dom';
 import Frame from '../Frame/Frame';
 import CardList from '../Cards/CardList';
 import Aside from './Aside';
+import loggedInConnect from '../../stores/loggedIn';
 
-const HomePage = () => {
+const HomePage = ({ loggedIn }) => {
     return (
         <Frame>
             <section className="home-section">
-                <span className="home-section__aside">
-                    <Aside />
-                </span>
+                {loggedIn && <span className="home-section__aside">
+                                <Aside />
+                            </span>
+                }
                 <span className="home-section__card-list">
                     <CardList  />
                 </span>
@@ -19,5 +20,14 @@ const HomePage = () => {
     )
 }
 
-// export default withRouter(HomePage);
-export default HomePage;
+const mapStateToProps = ({ loggedIn }) => {
+    return {
+        loggedIn,
+    };
+}
+
+const mapDispatchToProps = (dispatchLoggedIn) => {
+    return {};
+}
+
+export default loggedInConnect(mapStateToProps, mapDispatchToProps)(HomePage)

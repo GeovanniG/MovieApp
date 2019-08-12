@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
+import loggedInConnect from '../../stores/loggedIn';
 
-const CardList = ({ className='', popularMovies=false, topSeries=false, popularSeries=false, search=false, query='' } = {}) => {
+const CardList = ({ className='', id, popularMovies=false, topSeries=false, popularSeries=false, search=false, query='', info='' } = {}) => {
     const [cards, setCards] = useState(new Array(20).fill());
     const [error, setError] = useState('');
 
@@ -18,30 +19,42 @@ const CardList = ({ className='', popularMovies=false, topSeries=false, popularS
             return url;
         }
 
+        const callServer = async (info) => {
+            try {
+                const res = await fetch(`/user/${id}/${info}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+                const body = await res.json();
+                if (body && body.filmsInfo) setCards(body.filmsInfo);
+                else setError(`No ${info} to display`)
+            } catch (e) {
+                setError(`Unable to retreive ${info}`);
+            }
+        }
+
         const callApi = async () => {
             try {
                 const res = await fetch(getURL(), {
                     method: 'GET',
                 });
 
-                // const results = await res.json();
                 const { results } = await res.json();
-                // console.log(results);
                 if (!results) {
                     setCards([]);
                     throw new Error("Unable to retrieve data");
                 }
                 setCards(results);
             } catch (e) {
-                console.log(e);
                 if (search && !query) setError('Please provide a search term');
                 else setError('Data Retrieval Error');
             }
-            
         }
-
-        callApi();
-    }, [setCards, popularMovies, topSeries, popularSeries, search, query]);
+        if (info) callServer(info);
+        else callApi();
+    }, [setCards, popularMovies, topSeries, popularSeries, search, query, id, info]);
 
     return (
         <div className={`card-list ${className}`}>
@@ -50,4 +63,15 @@ const CardList = ({ className='', popularMovies=false, topSeries=false, popularS
     )
 }
 
-export default CardList;
+const mapStateToProps = ({ id }) => {
+    return {
+        id
+    };
+}
+
+const mapDispatchToProps = (dispatchLoggedIn) => {
+    return {};
+}
+
+export default loggedInConnect(mapStateToProps, mapDispatchToProps)(CardList);
+// export default CardList;

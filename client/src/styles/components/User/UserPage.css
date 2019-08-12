@@ -1,0 +1,12 @@
+.user--section {
+  margin-top: var(--xxs-size);
+  margin-bottom: var(--s-size);
+}
+
+.user--link {
+  color: var(--grey-primary);
+}
+
+.user--title {
+  margin-left: var(--xxs-size);
+}

@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
+import loggedInConnect from '../../stores/loggedIn'; 
 
-const Nav = ({ history }) => {
+const Nav = ({ history, loggedIn, dispatchLogout }) => {
     const [search, setSearch] = useState('');
+
+    // Cannot use  because will cause infinite rerenders
+    // useEffect(() => {
+    //     if (!localStorage.getItem('token')) dispatchLogout();
+    // }, [dispatchLogout])
 
     return (
         <nav className="nav">
-            <NavLink to={{
-                    pathname: "/",
-                    // state: { loggedIn }
-                }}
+            <NavLink to="/"
                 exact className="nav__link nav__link-title" 
                 activeClassName="nav__link--active" 
             >
@@ -19,20 +22,20 @@ const Nav = ({ history }) => {
             </NavLink>
             
             <div className="nav__link-user">
-                {true ? (
+                {loggedIn ? (
+                    <>
+                    <span onClick={dispatchLogout}>
+                        <NavLink to="/" className="nav__link">
+                            Logout
+                        </NavLink>
+                    </span>
+                    </>
+                    
+                ) : (
                     <>
                         <NavLink to="/register" className="nav__link" activeClassName="nav__link--active">Register</NavLink>
                         <NavLink to="/login" className="nav__link" activeClassName="nav__link--active">Login</NavLink>
                     </>
-                ) : (
-                    <NavLink to={{
-                        pathname: "/",
-                        // state: { loggedIn: false }
-                        }} 
-                        className="nav__link"
-                    >
-                        Logout
-                    </NavLink>
                 )}    
             </div>
 
@@ -49,12 +52,26 @@ const Nav = ({ history }) => {
             </div>
 
             <div className="nav__link-type">
-                <NavLink to="/movies" className="nav__link" activeClassName="nav__link--active">Popular Movies</NavLink>
-                <NavLink to="/series" className="nav__link" activeClassName="nav__link--active">Top Rated Series</NavLink>
-                <NavLink to="/episodes" className="nav__link" activeClassName="nav__link--active">Popular Series</NavLink>
+                <NavLink to="/moviespop" className="nav__link" activeClassName="nav__link--active">Popular Movies</NavLink>
+                <NavLink to="/seriestop" className="nav__link" activeClassName="nav__link--active">Top Rated Series</NavLink>
+                <NavLink to="/seriespop" className="nav__link" activeClassName="nav__link--active">Popular Series</NavLink>
             </div>
         </nav>
     )
 }
 
-export default withRouter(Nav);
+
+const mapStateToProps = ({ loggedIn }) => {
+    return {
+        loggedIn
+    };
+}
+
+const mapDispatchToProps = (dispathLoggedIn) => {
+    return {
+        dispatchLogout: () => dispathLoggedIn({type: 'LOGOUT'})
+    }
+}
+
+export default loggedInConnect(mapStateToProps, mapDispatchToProps)(withRouter(Nav));
+// export default withRouter(Nav);

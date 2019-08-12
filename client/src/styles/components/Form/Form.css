@@ -3,7 +3,7 @@
     border-radius: var(--xxs-size);
     display: grid;
     grid-row-gap: var(--s-size);
-    /* margin: var(--m-size) var(--xs-size); */
+    margin: var(--xl-size) var(--xxs-size);
     max-width: 400rem;
 }
 
