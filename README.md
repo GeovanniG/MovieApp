@@ -13,3 +13,6 @@ The backend was built as a restful api. The frontend was done in React + Hooks +
 - Add the option to show more movies/shows
 
 
+### Link
+The finished project can be found at:
+https://gonzalez-movie.herokuapp.com/
