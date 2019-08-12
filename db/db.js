@@ -1,5 +1,4 @@
 const { Pool } = require('pg');
-const validator = require('validator');
 
 // For heroku
 let pool
@@ -30,6 +29,7 @@ const dropTables = async () => {
       DROP TABLE IF EXISTS films CASCADE;
       DROP TABLE IF EXISTS favorites CASCADE;
     `)
+    console.log(res);
   } catch(e) {
     console.log(e);
   }
@@ -38,6 +38,8 @@ const dropTables = async () => {
 const createTables = async () => {
   try {
     const res1 = await pool.query(`
+      CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+
       CREATE TABLE IF NOT EXISTS users (
         id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
         first_name VARCHAR(355),
@@ -117,9 +119,35 @@ const alterTable1 = async () => {
   }
 }
 
-createTables();
+// Database retreival test
+const deleteUsers = async () => {
+  try {
+    const res = await pool.query(`
+      DELETE FROM users;
+    `)
+    console.log(res)
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+// Database retreival test
+const selectUsers = async () => {
+  try {
+    const res = await pool.query(`
+      SELECT * FROM users;
+    `)
+    console.log(res)
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+// createTables();
+// alterTable1();
 // dropTables();
-alterTable1();
+// deleteUsers();
+// selectUsers();
 
 module.exports = {
   query: (text, params, callback) => {
