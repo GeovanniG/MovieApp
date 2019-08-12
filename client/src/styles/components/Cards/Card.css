@@ -48,7 +48,7 @@
     justify-content: center;
 }
 
-@media (hover:none), (hover:on-demand) { 
+@media (hover:none) { 
     .card {
         border: 1px solid var(--grey-primary);
         border-radius: var(--xxs-size);
