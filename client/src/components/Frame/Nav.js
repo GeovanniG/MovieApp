@@ -55,6 +55,7 @@ const Nav = ({ history, loggedIn, dispatchLogout }) => {
                 <NavLink to="/moviespop" className="nav__link" activeClassName="nav__link--active">Popular Movies</NavLink>
                 <NavLink to="/seriestop" className="nav__link" activeClassName="nav__link--active">Top Rated Series</NavLink>
                 <NavLink to="/seriespop" className="nav__link" activeClassName="nav__link--active">Popular Series</NavLink>
+                {loggedIn && <NavLink to="/user" className="nav__link" activeClassName="nav__link--active">My Likes</NavLink> }
             </div>
         </nav>
     )
