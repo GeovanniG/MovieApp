@@ -1,5 +1,4 @@
 const { Pool } = require('pg');
-const validator = require('validator');
 
 // For heroku
 let pool
@@ -30,6 +29,7 @@ const dropTables = async () => {
       DROP TABLE IF EXISTS films CASCADE;
       DROP TABLE IF EXISTS favorites CASCADE;
     `)
+    console.log(res);
   } catch(e) {
     console.log(e);
   }
@@ -38,6 +38,8 @@ const dropTables = async () => {
 const createTables = async () => {
   try {
     const res1 = await pool.query(`
+      CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+
       CREATE TABLE IF NOT EXISTS users (
         id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
         first_name VARCHAR(355),
@@ -53,7 +55,7 @@ const createTables = async () => {
       CREATE TABLE IF NOT EXISTS films (
         id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
         title TEXT UNIQUE NOT NULL,
-        url TEXT UNIQUE NOT NULL,
+        url TEXT NOT NULL,
         overview TEXT,
         release_date DATE,
         vote_average REAL,
@@ -108,7 +110,7 @@ const alterTable1 = async () => {
       ALTER TABLE dislikes
         ADD CONSTRAINT unique_user_film_dislikes UNIQUE(user_id, film_id);
 
-        ALTER TABLE favorites
+      ALTER TABLE favorites
         ADD CONSTRAINT unique_user_film_favs UNIQUE(user_id, film_id);
     `)
     console.log(res)
@@ -117,23 +119,35 @@ const alterTable1 = async () => {
   }
 }
 
-const alterTable2 = async () => {
+// Database retreival test
+const deleteUsers = async () => {
   try {
     const res = await pool.query(`
-      ALTER TABLE films
-        DROP CONSTRAINT IF EXISTS films_url_key;
+      DELETE FROM users;
     `)
     console.log(res)
   } catch (e) {
     console.log(e);
   }
-  
+}
+
+// Database retreival test
+const selectUsers = async () => {
+  try {
+    const res = await pool.query(`
+      SELECT * FROM users;
+    `)
+    console.log(res)
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 // createTables();
-// dropTables();
 // alterTable1();
-// alterTable2();
+// dropTables();
+// deleteUsers();
+// selectUsers();
 
 module.exports = {
   query: (text, params, callback) => {

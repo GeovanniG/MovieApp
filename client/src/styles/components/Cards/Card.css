@@ -48,7 +48,7 @@
     justify-content: center;
 }
 
-@media (any-hover: hover) {
+@media (hover: hover) {
     .card__img-wrapper:hover .card__img-btn-wrapper {
         background: rgba(168, 190, 212, 0.849);
         z-index: 1;
@@ -80,7 +80,7 @@
     }
 }
 
-@media (hover:none), (hover:on-demand) { 
+@media (hover:none) { 
     .card {
         border: 1px solid var(--grey-primary);
         border-radius: var(--xxs-size);
@@ -101,7 +101,7 @@
     }
 
     .card__header-icon {
-        color: white;
+        color: var(--white-primary);
         font-size: 35rem;
         padding: 3rem;
         position: absolute;
