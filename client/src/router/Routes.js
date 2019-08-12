@@ -47,6 +47,11 @@ const Routes = ({ location, loggedIn }) => {
             {/* <AsyncDisplay popularSeries={true} /> */}
             <SeriesPopularDisplay popularSeries={true} />
           </Route>
+
+          {/* If no match, send to home page */}
+          <Route path="/*">
+            <Redirect to="/" />
+          </Route>
         </Switch>
       </Suspense>
   )

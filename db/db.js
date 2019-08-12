@@ -1,13 +1,24 @@
 const { Pool } = require('pg');
 const validator = require('validator');
 
-const pool = new Pool({
-  user: process.env.DBUSER,
-  host: process.env.DBHOST,
-  database: process.env.DB,
-  password: process.env.DBPW,
-  port: process.env.DBPORT,
-})
+// For heroku
+let pool
+if (process.env.DATABASE_URL) {
+  pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+  })
+} else {
+  // When in development
+  pool = new Pool({
+    user: process.env.DBUSER,
+    host: process.env.DBHOST,
+    database: process.env.DB,
+    password: process.env.DBPW,
+    port: process.env.DBPORT,
+  })
+}
+
 
 const dropTables = async () => {
   try {
