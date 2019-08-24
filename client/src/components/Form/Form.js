@@ -113,18 +113,18 @@ const Form = ({ signUp=true, history, dispatchLogIn }) => {
                 {msg && <p className="form--red-bold">{msg}</p>}
                 {isSignUpForm && (
                     <>
-                        <input type="text" name="fname" placeholder="First Name" className="form__input" value={fname} 
+                        <input type="text" arial-label="First name" name="fname" placeholder="First Name" className="form__input" value={fname} 
                             onChange={(e) => {setFName(e.target.value)}}
                         />
-                        <input type="text" name="lname" placeholder="Last Name" className="form__input" value={lname} 
+                        <input type="text" arial-label="Last name" name="lname" placeholder="Last Name" className="form__input" value={lname} 
                             onChange={(e) => {setLName(e.target.value)}}
                         />
                     </>
                 )}
-                <input type="text" name="email" placeholder="* Email" className="form__input" value={email} 
+                <input type="text" arial-label="email" name="email" placeholder="* Email" className="form__input" value={email} 
                     onChange={(e) => {setEmail(e.target.value)}}
                 />
-                <input type="password" name="password" placeholder="* Password" className="form__input" value={password} 
+                <input type="password" arial-label="password" name="password" placeholder="* Password" className="form__input" value={password} 
                     onChange={(e) => {setPassword(e.target.value)}}
                 />
                 {isSignUpForm 

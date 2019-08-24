@@ -40,12 +40,13 @@ const Nav = ({ history, loggedIn, dispatchLogout }) => {
             </div>
 
             <div className="nav__link-search" onKeyPress={e => e.key === 'Enter' ? history.push('/search', { query: search }) : '' }>
-                <input type="text" className="nav__link-search-input" value={search} onChange={(e) => setSearch(e.target.value)} />
+                <input type="text" aria-label="Search" className="nav__link-search-input" value={search} onChange={(e) => setSearch(e.target.value)} />
                 
                 <NavLink to={{
                     pathname: "/search",
                     state: { query: search }
                     }} className="nav__link-search-icon" activeClassName="nav__link--active"
+                    aria-label="Search for movies and series"
                 >
                     <FaSearch />
                 </NavLink>
