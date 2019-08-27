@@ -1,5 +1,5 @@
 .card {
-    --card-width: 290px; 
+    --card-width: 300rem; 
 
     display: flex;
     flex-direction: column;
@@ -90,11 +90,13 @@
     .card__header {
         border-radius: var(--xxs-size) var(--xxs-size) 0 0;
         background: var(--brown-secondary);
+        overflow: scroll;
     }
 
     .card__img {
         border-radius: 0 0 var(--xxs-size) var(--xxs-size);
-    }
+        height: 100%;
+}
     
     .card__img-btn-wrapper {
         display: none;

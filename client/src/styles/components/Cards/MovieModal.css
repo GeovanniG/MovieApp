@@ -27,9 +27,15 @@
 .modal__img {
     height: auto;
     margin: var(--xs-size) 0;
-    width: 100%;
+    max-width: 100%;
 }
 
 .modal__text {
     padding: var(--xxs-size) 0;
+}
+
+@media (min-width: 31rem) {
+    .modal__text {
+        padding: var(--xxs-size) var(--xl-size);
+    }
 }

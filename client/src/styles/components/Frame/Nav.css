@@ -10,6 +10,11 @@
     justify-items: center;
     padding: var(--xxs-size);
 }
+
+.nav__link {
+    padding: var(--s-size);
+}
+
 .nav__link-title {
     font-weight: 700;
     grid-area: title;
@@ -60,7 +65,8 @@
     text-align: center;
 }
 
-@media (min-width: 750px) {
+/* @media (min-width: 750px) { */
+@media (min-width: 46rem) {
     .nav {
         grid-template-columns: auto 1fr auto;
         grid-template-areas:
@@ -88,3 +94,8 @@
     color: var(--brown-primary);
 }
 
+@-moz-document url-prefix() {
+    .nav__link-search-input {
+        padding: 7rem var(--s-size);
+    }
+}

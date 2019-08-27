@@ -63,7 +63,8 @@
 
 
 /* @media (min-width: var(--s-breakpoint)) { */
-@media (min-width: 500px) {
+/* @media (min-width: 500px) { */
+@media (min-width: 31rem) {
     .form {
         margin: var(--m-size) auto;
         width: 70%;
@@ -71,14 +72,22 @@
 }
 
 /* @media (min-width: var(--m-breakpoint)) { */
-@media (min-width: 750px) {
+/* @media (min-width: 750px) { */
+@media (min-width: 46rem) {
     .form {
         width: 50%;
     }
 }
 
-@media (min-width: 1000px) {
+/* @media (min-width: 1000px) { */
+@media (min-width: 62rem) {
     .form {
         width: 35%;
+    }
+}
+
+@-moz-document url-prefix() {
+    .form__input {
+        margin: var(--xxs-size) var(--s-size);
     }
 }
