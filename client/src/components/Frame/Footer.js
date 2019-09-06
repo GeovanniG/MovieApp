@@ -20,7 +20,7 @@ const Footer = () => {
             <section className="footer__column">
                 <h2 className="footer__title">Follow Me</h2>
                 <ul className="footer__link-list">
-                    <li className="footer__link-list-item"><a className="footer__link" href="/">Github</a></li>
+                    <li className="footer__link-list-item"><a className="footer__link" href="https://github.com/GeovanniG">Github</a></li>
                     <li className="footer__link-list-item"><a className="footer__link" href="/">Twitter</a></li>
                 </ul>
             </section>
