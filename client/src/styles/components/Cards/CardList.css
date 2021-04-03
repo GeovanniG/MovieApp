@@ -1,20 +1,20 @@
 .card-list {
     /* align-items: center; */
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(58rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150rem, 1fr));
     grid-gap: var(--xxs-size) var(--xs-size);
     /* justify-items: center; */
     padding: var(--xxs-size);
 }
 
-@-moz-document url-prefix() {
-    .card-list {
-        grid-template-columns: repeat(auto-fill, minmax(100rem, 1fr));
-    }
+/* @-moz-document url-prefix() { */
+    /* .card-list {
+        grid-template-columns: repeat(auto-fill, minmax(150rem, 1fr));
+    } */
 
     @media (min-width: 46rem) {
         .card-list {
-            grid-template-columns: repeat(auto-fill, minmax(150rem, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200rem, 1fr));
         }
     }
-}
+/* } */
